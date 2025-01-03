@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReAwaken Gym</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <!-- Header Section -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#"><img src="static/images/logo.png" alt="ReAwaken Logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="cta-buttons">
+            {% if session.get("user") %}
+                <!-- Show Logout button when user is logged in -->
+                <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a>
+            {% else %}
+                <!-- Show Login and SignUp buttons when user is not logged in -->
+                <a href="{{ url_for('login') }}" class="btn login-btn">Login</a>
+                <a href="{{ url_for('signup') }}" class="btn signup-btn">Sign Up</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your Body <br><span>Awaken Your Potential</span></h1>
+            <p>Join ReAwaken Gym and start your fitness journey today!</p>
+            <div class="hero-buttons">
+                <a href="/signup" class="btn primary-btn">Get Started</a>
+                <a href="#membership" class="btn secondary-btn">Explore Memberships</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p class="about-desc">
+                At <span>ReAwaken Gym</span>, we believe fitness is more than just a goal—it's a lifestyle.
+                Since our establishment, we've been committed to empowering our members to awaken their
+                true potential through professional training, state-of-the-art facilities, and a
+                supportive community.
+            </p>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Members Transformed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Certified Trainers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5+</h3>
+                    <p>Years of Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p class="services-desc">
+                At <span>ReAwaken Gym</span>, we offer a range of specialized services to help you achieve your fitness goals. Explore what we have to offer and choose what fits you best!
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="static/images/personal-training.jpg" alt="Personal Training">
+                    <h3>Personal Training</h3>
+                    <p>One-on-one guidance to reach your fitness goals faster with our certified trainers.</p>
+                </div>
+                <div class="service-card">
+                    <img src="static/images/yoga.jpg" alt="Yoga & Meditation">
+                    <h3>Yoga & Meditation</h3>
+                    <p>Improve flexibility, balance, and peace of mind with our guided yoga sessions.</p>
+                </div>
+                <div class="service-card">
+                    <img src="static/images/group-classes.jpg" alt="Group Classes">
+                    <h3>Group Classes</h3>
+                    <p>Stay motivated and build camaraderie while sweating it out in high-energy classes.</p>
+                </div>
+                <div class="service-card">
+                    <img src="static/images/nutrition.jpg" alt="Nutrition Planning">
+                    <h3>Nutrition Planning</h3>
+                    <p>Customized diet plans to complement your workout regime and maximize results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReAwaken Gym - Membership Plans</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation bar (same as before) -->
+    </header>
+
+    <!-- Membership Plans Section -->
+    <section class="membership" id="membership">
+        <div class="container">
+            <h2>Membership Plans</h2>
+            <p class="membership-desc">
+                Choose the perfect plan for your fitness journey. At <span>ReAwaken Gym</span>, we offer flexible memberships to suit every lifestyle.
+            </p>
+            <div class="plans">
+                <div class="plan-card">
+                    <h3>Basic Plan</h3>
+                    <p class="price">$19.99/month</p>
+                    <ul class="features">
+                        <li>Access to gym equipment</li>
+                        <li>Locker facilities</li>
+                        <li>1 group class per week</li>
+                    </ul>
+                    <button class="btn plan-btn" data-plan="basic">Choose Plan</button>
+                </div>
+                <div class="plan-card popular">
+                    <h3>Premium Plan</h3>
+                    <p class="price">$39.99/month</p>
+                    <ul class="features">
+                        <li>Everything in Basic</li>
+                        <li>Unlimited group classes</li>
+                        <li>1 personal training session per month</li>
+                    </ul>
+                    <button class="btn plan-btn" data-plan="premium">Choose Plan</button>
+                </div>
+                <div class="plan-card">
+                    <h3>Elite Plan</h3>
+                    <p class="price">$59.99/month</p>
+                    <ul class="features">
+                        <li>Everything in Premium</li>
+                        <li>Customized nutrition plan</li>
+                        <li>Weekly personal training sessions</li>
+                    </ul>
+                    <button class="btn plan-btn" data-plan="elite">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReAwaken Gym - Testimonials</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation bar (same as before) -->
+    </header>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>What Our Members Say</h2>
+            <p class="testimonials-desc">
+                Hear from our community of dedicated members who are transforming their lives at <span>ReAwaken Gym</span>.
+            </p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="member-photo">
+                        <img src="static/images/member1.jpg" alt="Member Photo">
+                    </div>
+                    <p class="quote">
+                        "ReAwaken Gym changed my life! The trainers are supportive, and the atmosphere is inspiring."
+                    </p>
+                    <h4>- Alex Johnson</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="member-photo">
+                        <img src="static/images/member2.jpg" alt="Member Photo">
+                    </div>
+                    <p class="quote">
+                        "The personal training sessions and nutrition advice helped me achieve my fitness goals."
+                    </p>
+                    <h4>- Sarah Miller</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="member-photo">
+                        <img src="static/images/member3.jpg" alt="Member Photo">
+                    </div>
+                    <p class="quote">
+                        "The group classes are so much fun, and I love being part of a motivated community!"
+                    </p>
+                    <h4>- David Lopez</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReAwaken Gym - Meet Our Trainers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation bar (same as before) -->
+    </header>
+
+    <!-- Meet Our Trainers Section -->
+    <section class="trainers" id="trainers">
+        <div class="container">
+            <h2>Meet Our Trainers</h2>
+            <p class="trainers-desc">
+                At <span>ReAwaken Gym</span>, our certified trainers are here to guide and inspire you every step of the way. Get to know the people behind your fitness journey!
+            </p>
+            <div class="trainers-grid">
+                <div class="trainer-card">
+                    <img src="static/images/trainer1.jpg" alt="Trainer Photo">
+                    <h3>James Carter</h3>
+                    <p>Strength & Conditioning Expert</p>
+                    <div class="social-links">
+                        <a href="#" title="LinkedIn">LinkedIn</a>
+                        <a href="#" title="Instagram">Instagram</a>
+                    </div>
+                </div>
+                <div class="trainer-card">
+                    <img src="static/images/trainer2.jpg" alt="Trainer Photo">
+                    <h3>Emily Smith</h3>
+                    <p>Yoga & Wellness Specialist</p>
+                    <div class="social-links">
+                        <a href="#" title="LinkedIn">LinkedIn</a>
+                        <a href="#" title="Instagram">Instagram</a>
+                    </div>
+                </div>
+                <div class="trainer-card">
+                    <img src="static/images/trainer3.jpg" alt="Trainer Photo">
+                    <h3>David Lee</h3>
+                    <p>Personal Training Expert</p>
+                    <div class="social-links">
+                        <a href="#" title="LinkedIn">LinkedIn</a>
+                        <a href="#" title="Instagram">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReAwaken Gym - Facilities Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation bar (same as before) -->
+    </header>
+
+    <!-- Facilities Showcase Section -->
+    <section class="facilities" id="facilities">
+        <div class="container">
+            <h2>Our State-of-the-Art Facilities</h2>
+            <p class="facilities-desc">
+                <span>ReAwaken Gym</span> offers world-class facilities designed to help you achieve your fitness goals in style and comfort.
+            </p>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <img src="static/images/gym_equipment.jpg" alt="Gym Equipment">
+                    <h3>Modern Gym Equipment</h3>
+                    <p>Get access to the latest cardio, strength, and free weight equipment.</p>
+                </div>
+                <div class="facility-card">
+                    <img src="static/images/yoga_studio.jpg" alt="Yoga Studio">
+                    <h3>Peaceful Yoga Studio</h3>
+                    <p>Enjoy a tranquil space for yoga, meditation, and wellness classes.</p>
+                </div>
+                <div class="facility-card">
+                    <img src="static/images/locker_room.jpg" alt="Locker Room">
+                    <h3>Luxurious Locker Rooms</h3>
+                    <p>Unwind and refresh with clean, comfortable locker room facilities.</p>
+                </div>
+                <div class="facility-card">
+                    <img src="static/images/swimming_pool.jpg" alt="Swimming Pool">
+                    <h3>Indoor Swimming Pool</h3>
+                    <p>Take a refreshing dip or enjoy aquatic exercises in our pool.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReAwaken Gym - Newsletter Signup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation bar (same as before) -->
+    </header>
+
+    <!-- Newsletter Signup Section -->
+<section class="newsletter" id="newsletter">
+    <div class="container">
+        <h2>Stay Updated with ReAwaken</h2>
+        <p class="newsletter-desc">
+            Join our newsletter and be the first to know about exclusive offers, updates, and fitness tips!
+        </p>
+        <form class="newsletter-form" action="/subscribe" method="POST">
+            <input type="email" name="email" class="email-input" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-submit">Subscribe</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReAwaken Gym - Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation bar -->
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <form action="https://formsubmit.co/tokimeka944@gmail.com" method="POST">
+             <h2>Get in Touch</h2>
+             <p class="contact-desc">
+                Have questions or want to learn more? Reach out to us, and we'll be happy to assist you!
+             </p>
+            <div class="contact-form-container">
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" class="form-textarea" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReAwaken Gym - Footer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About ReAwaken</h3>
+                    <p>
+                        At <span>ReAwaken Gym</span>, we are committed to helping you reach your fitness goals with world-class facilities, expert trainers, and an inspiring community.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: contact@reawaken.com</p>
+                    <p>Phone: +995 (123) 456-7890</p>
+                    <p>Address: 123 Fitness Lane, Rustavi City</p>
+                </div>
+            </div>
+
+            <div class="footer-logo">
+                <a href="https://www.tbceducation.ge" target="_blank">
+                    <img src="static/images/tbc_logo.jpg" alt="TBC Bank" class="tbc-logo">
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 ReAwaken Gym. All rights reserved.</p>
+                <p>Made with ❤ by ReAwaken Team</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+</body>
+</html>

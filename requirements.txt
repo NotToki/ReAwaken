@@ -1,0 +1,8 @@
+Flask
+Flask-WTF
+Flask-SQLAlchemy
+Flask-login
+email_validator
+flask_migrate
+python-dotenv
+gunicorn
