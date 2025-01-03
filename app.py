@@ -8,14 +8,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("niKa@da!iKa2230")
+
+app.secret_key = os.getenv("SECRET_KEY")
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'reawaken.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
-
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -46,8 +46,8 @@ def signup():
             flash("Email already exists.", "error")
             return redirect(url_for('signup'))
 
+       
         hashed_password = generate_password_hash(password)
-
         new_user = User(username=username, email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
@@ -93,6 +93,7 @@ def subscribe():
         return redirect("/")
 
     return redirect(url_for('root'))
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
