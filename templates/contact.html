@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<section class="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out by filling out the form below!</p>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label }}<br>
+            {{ form.name(class="form-input") }}
+        </div>
+        <div class="form-group">
+            {{ form.email.label }}<br>
+            {{ form.email(class="form-input") }}
+        </div>
+        <div class="form-group">
+            {{ form.message.label }}<br>
+            {{ form.message(class="form-textarea") }}
+        </div>
+        {{ form.submit(class="btn") }}
+    </form>
+</section>
+{% endblock %}

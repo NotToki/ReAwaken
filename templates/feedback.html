@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Submit Feedback{% endblock %}
+{% block content %}
+<div class="feedback-container">
+    <h2 class="feedback-title">Submit Your Feedback</h2>
+    <form method="POST" class="feedback-form">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="content" class="form-label">{{ form.content.label }}</label>
+            {{ form.content(class="form-input", placeholder="Write your feedback here...") }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-submit") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

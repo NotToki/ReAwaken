@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+
+{% block title %}My Feedback{% endblock %}
+
+{% block content %}
+<section class="my-feedback">
+    <h2>My Feedback</h2>
+    <p>Manage your feedback below:</p>
+
+    {% if feedback %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Feedback</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in feedback %}
+                <tr>
+                    <td>{{ entry.id }}</td>
+                    <td>{{ entry.content }}</td>
+                    <td>{{ entry.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_feedback', feedback_id=entry.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No feedback submitted yet.</p>
+    {% endif %}
+</section>
+{% endblock %}

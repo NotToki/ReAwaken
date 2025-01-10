@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+{% block title %}Signup - ReAwaken{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <div class="form-card">
+        <h2 class="form-title">Signup</h2>
+        <form action="{{ url_for('signup') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <label for="signup-username">Username</label>
+            {{ form.username(class="form-input", id="signup-username", placeholder="Enter your username") }}
+
+            <label for="signup-email">Email</label>
+            {{ form.email(class="form-input", id="signup-email", placeholder="Enter your email") }}
+
+            <label for="signup-password">Password</label>
+            {{ form.password(class="form-input", id="signup-password", placeholder="Enter your password") }}
+
+            <label for="signup-confirm-password">Confirm Password</label>
+            {{ form.confirm_password(class="form-input", id="signup-confirm-password", placeholder="Confirm your password") }}
+
+            <button type="submit" class="btn">Signup</button>
+        </form>
+        <p class="switch-link">Already have an account? <a href="{{ url_for('login') }}">Log in here</a>.</p>
+    </div>
+</div>
+{% endblock %}

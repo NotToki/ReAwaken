@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+
+{% block title %}Welcome to ReAwaken{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to <span>ReAwaken</span> Gym</h1>
+        <p>Find your path to a healthier, stronger you!</p>
+        <div class="hero-buttons">
+            <a class="primary-btn" href="{{ url_for('signup') }}">Get Started</a>
+            <a class="secondary-btn" href="{{ url_for('programs') }}">View Programs</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
